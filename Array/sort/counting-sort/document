@@ -1,0 +1,80 @@
+Dòng mã này là một phần quan trọng trong thuật toán Counting Sort. Nó dùng để sắp xếp lại mảng dựa trên số lần xuất hiện của mỗi phần tử đã được đếm trước đó. Hãy xem xét chi tiết hơn:
+
+### Mã nguồn
+
+```python
+for num in range(N + 1):
+    while count[num] > 0:
+        arr[index] = num
+        index += 1
+        count[num] -= 1
+```
+
+### Giải thích từng dòng mã
+
+1. **Duyệt qua các giá trị từ 0 đến N**:
+    ```python
+    for num in range(N + 1):
+    ```
+    - Vòng lặp này chạy từ `num = 0` đến `num = N`. Điều này đảm bảo rằng tất cả các giá trị có thể có trong mảng gốc đều được xử lý. `N + 1` là để bao gồm cả giá trị `N`.
+
+2. **Sắp xếp lại mảng dựa trên số lần xuất hiện**:
+    ```python
+    while count[num] > 0:
+    ```
+    - Vòng lặp `while` này chạy cho đến khi tất cả các phần tử `num` đã được đặt vào mảng `arr`. `count[num]` giữ số lần xuất hiện của `num` trong mảng ban đầu.
+
+3. **Đặt giá trị `num` vào mảng đã sắp xếp**:
+    ```python
+    arr[index] = num
+    index += 1
+    count[num] -= 1
+    ```
+    - `arr[index] = num`: Đặt giá trị `num` vào vị trí hiện tại trong mảng `arr`.
+    - `index += 1`: Tăng chỉ số `index` để chuyển đến vị trí tiếp theo trong mảng `arr`.
+    - `count[num] -= 1`: Giảm số lần xuất hiện của `num` đi 1 vì một phần tử `num` đã được đặt vào mảng.
+
+### Ví dụ minh họa
+
+Giả sử chúng ta có mảng `arr` và mảng `count` sau khi đã đếm số lần xuất hiện:
+```python
+arr = [3, 0, 2, 5, 4, 3, 1, 2, 1, 0, 5, 4, 3, 2]
+count = [2, 2, 3, 3, 2, 2]  # Đếm số lần xuất hiện của mỗi giá trị từ 0 đến 5
+```
+
+Sau khi đếm xong, chúng ta sẽ sử dụng đoạn mã trên để sắp xếp lại `arr`:
+1. `num = 0`: `count[0] = 2`, đặt `0` vào `arr[0]` và `arr[1]`, sau đó `count[0] = 0`.
+    ```python
+    arr = [0, 0, 2, 5, 4, 3, 1, 2, 1, 0, 5, 4, 3, 2]
+    ```
+
+2. `num = 1`: `count[1] = 2`, đặt `1` vào `arr[2]` và `arr[3]`, sau đó `count[1] = 0`.
+    ```python
+    arr = [0, 0, 1, 1, 4, 3, 1, 2, 1, 0, 5, 4, 3, 2]
+    ```
+
+3. `num = 2`: `count[2] = 3`, đặt `2` vào `arr[4]`, `arr[5]`, và `arr[6]`, sau đó `count[2] = 0`.
+    ```python
+    arr = [0, 0, 1, 1, 2, 2, 2, 2, 1, 0, 5, 4, 3, 2]
+    ```
+
+4. `num = 3`: `count[3] = 3`, đặt `3` vào `arr[7]`, `arr[8]`, và `arr[9]`, sau đó `count[3] = 0`.
+    ```python
+    arr = [0, 0, 1, 1, 2, 2, 2, 3, 3, 3, 5, 4, 3, 2]
+    ```
+
+5. `num = 4`: `count[4] = 2`, đặt `4` vào `arr[10]` và `arr[11]`, sau đó `count[4] = 0`.
+    ```python
+    arr = [0, 0, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 3, 2]
+    ```
+
+6. `num = 5`: `count[5] = 2`, đặt `5` vào `arr[12]` và `arr[13]`, sau đó `count[5] = 0`.
+    ```python
+    arr = [0, 0, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 5, 5]
+    ```
+
+Sau khi hoàn tất, `arr` đã được sắp xếp hoàn toàn.
+
+### Tóm lại
+
+Đoạn mã này duyệt qua từng giá trị có thể có từ `0` đến `N` và đặt chúng vào đúng vị trí trong mảng dựa trên số lần xuất hiện đã được đếm trước đó. Đây là bước cuối cùng của thuật toán Counting Sort, đảm bảo rằng tất cả các phần tử được sắp xếp theo thứ tự tăng dần.

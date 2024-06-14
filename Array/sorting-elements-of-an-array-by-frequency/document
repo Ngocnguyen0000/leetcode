@@ -1,0 +1,39 @@
+Đo lường hiệu quả: 
+
+1. **Đếm tần suất**:
+   - Chúng ta sử dụng một đối tượng `Counter` từ thư viện `collections` để đếm tần suất của từng phần tử trong danh sách `elements`.
+   - Quá trình đếm tần suất này yêu cầu duyệt qua toàn bộ danh sách một lần, do đó có độ phức tạp là \( O(N) \), với \( N \) là số phần tử trong danh sách.
+
+2. **Sắp xếp**:
+   - Sau khi có tần suất của từng phần tử, chúng ta sử dụng hàm `sorted()` để sắp xếp danh sách theo tần suất và thứ tự xuất hiện ban đầu.
+   - Hàm `sorted()` sử dụng thuật toán Timsort với độ phức tạp trung bình là \( O(N \log N) \).
+   - Vì phải sắp xếp toàn bộ danh sách nên độ phức tạp ở bước này là \( O(N \log N) \).
+
+3. **Vòng lặp cuối cùng**:
+   - Trong trường hợp này, không có vòng lặp cuối cùng riêng biệt nào sau bước sắp xếp. Tất cả các công việc được thực hiện trong hàm `sorted()`.
+
+Tổng hợp lại, độ phức tạp thời gian của thuật toán này chủ yếu bị chi phối bởi bước sắp xếp, do đó là \( O(N \log N) \).
+
+### Độ phức tạp về không gian
+
+1. **Bản đồ băm (Counter)**:
+   - Chúng ta sử dụng một đối tượng `Counter` để lưu trữ tần suất của từng phần tử.
+   - Vì `Counter` lưu trữ mỗi phần tử một lần cùng với tần suất của nó, nên độ phức tạp không gian của `Counter` là \( O(N) \).
+
+2. **Danh sách sắp xếp**:
+   - Hàm `sorted()` tạo ra một danh sách mới chứa các phần tử đã được sắp xếp.
+   - Danh sách mới này có cùng số lượng phần tử với danh sách ban đầu, do đó cần \( O(N) \) không gian.
+
+Tổng hợp lại, độ phức tạp không gian là \( O(2N) \), nhưng trong phân tích độ phức tạp, các hằng số không quan trọng, vì vậy chúng ta có thể viết độ phức tạp không gian là \( O(N) \).
+
+### Tóm tắt
+
+- **Độ phức tạp thời gian**: \( O(N \log N) \)
+  - Đếm tần suất: \( O(N) \)
+  - Sắp xếp: \( O(N \log N) \)
+  - Vòng lặp cuối cùng: \( O(N) \) (được tích hợp trong bước sắp xếp)
+- **Độ phức tạp không gian**: \( O(N) \)
+  - Bản đồ băm: \( O(N) \)
+  - Danh sách sắp xếp: \( O(N) \)
+
+Hy vọng giải thích này giúp bạn hiểu rõ hơn về độ phức tạp thời gian và không gian của thuật toán sắp xếp các phần tử theo tần suất xuất hiện.

@@ -1,0 +1,11 @@
+Đề: Có 2 mảng đã được sắp xếp
+    Yêu cầu trả về giá trị trung bình của 2 mảng này
+
+    Logic: 
+        Mảng A[]; Mảng B[]. Tổng 2 kích thước lần lượt là n và m
+        --> Nếu n+m lẻ --> Trung bình = (n+m)/2
+            Nếu n+m chẵn --> Trung bình = (n+m)/2+1
+        
+    
+    Thuật toán:
+
